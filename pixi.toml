@@ -1,0 +1,19 @@
+[workspace]
+authors = ["Alexander Epple <alexander.epple@uni-ulm.de>"]
+channels = ["conda-forge"]
+name = "FM Labs"
+platforms = ["osx-arm64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = "3.12.*"
+numpy = ">=2.4.6,<3"
+matplotlib = ">=3.10.9,<4"
+pytorch = ">=2.10.0,<3"
+tqdm = ">=4.67.3,<5"
+seaborn = ">=0.13.2,<0.14"
+jupyter = ">=1.1.1,<2"
+ipykernel = ">=7.2.0,<8"
+nb-clean = ">=4.0.1,<5"
