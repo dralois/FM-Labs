@@ -19,7 +19,7 @@ PORT=8888
 IMAGE_SQSH="$ENROOT_CACHE_PATH/ubuntu-22.04.sqsh"
 IMAGE_URI="docker://ubuntu:22.04"
 CONTAINER_NAME="pytorch-jupyter"
-PROJECT_DIR="$HOME/agi"
+PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 ############################
 # Import image (once)
