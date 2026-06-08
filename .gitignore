@@ -3,3 +3,5 @@
 !.pixi/config.toml
 **/.DS_Store
 FM Labs.code-workspace
+**/data
+**/.ipynb_checkpoints
