@@ -59,6 +59,7 @@ echo "================================================="
 echo
 
 enroot start \
+  --root \
   --rw \
   --mount "$HOME:$HOME" \
   "$CONTAINER_NAME" \
