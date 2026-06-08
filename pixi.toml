@@ -2,7 +2,7 @@
 authors = ["Alexander Epple <alexander.epple@uni-ulm.de>"]
 channels = ["conda-forge"]
 name = "FM Labs"
-platforms = ["osx-arm64"]
+platforms = ["osx-arm64", "linux-64"]
 version = "0.1.0"
 
 [tasks]
@@ -11,7 +11,6 @@ version = "0.1.0"
 python = "3.12.*"
 numpy = ">=2.4.6,<3"
 matplotlib = ">=3.10.9,<4"
-pytorch = ">=2.10.0,<3"
 tqdm = ">=4.67.3,<5"
 seaborn = ">=0.13.2,<0.14"
 jupyter = ">=1.1.1,<2"
@@ -20,3 +19,26 @@ nb-clean = ">=4.0.1,<5"
 ffmpeg = ">=8.1.1,<9"
 celluloid = ">=0.2.0,<0.3"
 scikit-learn = ">=1.8.0,<2"
+einops = ">=0.8.2,<0.9"
+
+# CPU environment (default, used on macOS)
+[feature.cpu.dependencies]
+pytorch-cpu = ">=2.10.0,<3"
+torchvision = ">=0.26.0,<0.27"
+
+# GPU environment (used on linux-64 HPC with CUDA)
+[feature.gpu.system-requirements]
+cuda = "12.0"
+
+[feature.gpu.dependencies]
+torchvision = ">=0.26.0,<0.27"
+
+[feature.gpu.target.linux-64.dependencies]
+pytorch-gpu = ">=2.10.0,<3"
+
+[feature.gpu.target.osx-arm64.dependencies]
+pytorch-cpu = ">=2.10.0,<3"
+
+[environments]
+default = { features = ["cpu"] }
+gpu = { features = ["gpu"] }
