@@ -83,5 +83,6 @@ enroot start \
     pixi run -e gpu jupyter lab \
       --no-browser \
       --port=$PORT \
-      --ip=0.0.0.0
+      --ip=0.0.0.0 \
+      --allow-root
   "
