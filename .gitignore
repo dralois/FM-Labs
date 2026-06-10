@@ -5,3 +5,4 @@
 FM Labs.code-workspace
 **/data
 **/.ipynb_checkpoints
+**/*.pt
