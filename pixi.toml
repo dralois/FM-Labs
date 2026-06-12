@@ -42,3 +42,6 @@ pytorch-cpu = ">=2.10.0,<3"
 [environments]
 default = { features = ["cpu"] }
 gpu = { features = ["gpu"] }
+
+[target.linux-64.dependencies]
+cuda-toolkit = ">=12.9.2,<14"
