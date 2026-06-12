@@ -53,7 +53,7 @@ NODE_ID="$(hostname -s)"
 echo
 echo "================================================="
 echo "LOCAL MACHINE:"
-echo "ssh -L ${PORT}:${NODE_ID}:${PORT} <user-name>@uc3.scc.kit.edu"
+echo "ssh -L ${PORT}:${NODE_ID}:${PORT} $(whoami)@uc3.scc.kit.edu"
 echo "Open: http://localhost:${PORT}"
 echo "================================================="
 echo
