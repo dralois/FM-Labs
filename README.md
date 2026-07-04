@@ -35,6 +35,11 @@ class BrownianMotion
 class OUProcess
 ```
 
+**Topics Covered:**
+- Part 0: Introduction to ODEs and SDEs
+- Part 1: Numerical Methods for Simulating ODEs and SDEs (Euler and Euler-Maruyama)
+- Part 2: Visualizing Solutions to SDEs (Brownian Motion and OU processes)
+
 ### **Lab 2: Flow Matching and Score Matching**
 Introduction to conditional probability paths and the core flow matching framework.
 
@@ -60,10 +65,12 @@ class LinearAlpha, SquareRootBeta
 class ConditionalVectorFieldODE
 ```
 
-**Visualizations in This Lab:**
-- Source and target distribution heatmaps
-- Probability path evolution over time
-- Conditional trajectories with vector field guidance
+**Topics Covered:**
+- Part 0: Miscellaneous Imports and Utility Functions
+- Part 1: Implementing Conditional Probability Paths
+- Part 2: Gaussian Conditional Probability Paths
+- Part 3: Implementing Alpha and Beta schedules
+- Part 4: Conditional Vector Fields and Score Functions
 
 ### **Lab 3: Conditional Generative Models for Images**
 Advanced application to image generation with classifier-free guidance.
@@ -90,10 +97,11 @@ class CFGVectorFieldODE
 class CFGFlowTrainer
 ```
 
-**Visualizations in This Lab:**
-- MNIST samples under conditional probability paths
-- Noisy to clean image transitions
-- Generated digit samples at different guidance scales
+**Topics Covered:**
+- Part 0: Recycling Components from Previous Labs
+- Part 1: Getting a Feel for MNIST
+- Part 2: Classifier-Free Guidance
+- Part 3: Training Conditional Flow Matching Models
 
 ## Requirements
 
@@ -136,17 +144,17 @@ jupyter notebook lab_one.ipynb
 
 ### Progression
 ```
-Lab 1: Fundamentals
+Lab 1: Fundamentals (ODEs & SDEs)
     ↓
-Lab 2: Theory & Implementation
+Lab 2: Theory & Implementation (Flow Matching)
     ↓
-Lab 3: Real-World Application
+Lab 3: Real-World Application (Image Generation)
 ```
 
 Each lab builds on the previous one, recycling and extending implementations:
-- Lab 1 introduces basic simulation infrastructure
-- Lab 2 reuses `ODE`, `SDE`, and `Simulator` classes, adding probability path abstractions
-- Lab 3 extends Lab 2 with MNIST data, conditioning mechanisms, and guidance techniques
+- **Lab 1** introduces basic simulation infrastructure (`ODE`, `SDE`, `Simulator` classes)
+- **Lab 2** reuses these classes and adds probability path abstractions (`ConditionalProbabilityPath`, vector fields)
+- **Lab 3** extends Lab 2 with MNIST data, conditioning mechanisms, classifier-free guidance, and training infrastructure
 
 ## Key Concepts
 
@@ -158,7 +166,7 @@ $$p_t(x|z) = \mathcal{N}(x; \alpha_t z, \beta_t^2 I_d)$$
 where:
 - $z$ is sampled from the target data distribution
 - $\alpha_t$ and $\beta_t$ are schedule functions (e.g., $\alpha_t = t$, $\beta_t = \sqrt{1-t}$)
-- $t \in [0, 1]$ parameterizes the path
+- $t \in [0, 1]$ parameterizes the path from noise to data
 
 ### Conditional Vector Fields
 The conditional vector field describes how samples should move along the probability path:
@@ -215,11 +223,24 @@ losses, steps = trainer.train(
 )
 ```
 
+## File Organization
+
+```
+FM-Labs/
+├── lab_one.ipynb          # ODEs and SDEs
+├── lab_two.ipynb          # Flow Matching fundamentals
+├── lab_three.ipynb        # Image generation with guidance
+└── README.md              # This file
+```
+
 ## Troubleshooting
 
-**CUDA Out of Memory**: Reduce batch sizes in the notebooks
-**Slow Training**: The labs use educational-sized models; for production use larger architectures
-**Missing Data**: Lab 3 downloads MNIST automatically on first run
+| Issue | Solution |
+|-------|----------|
+| CUDA Out of Memory | Reduce batch sizes in the notebooks |
+| Slow Training | Labs use educational-sized models; use larger architectures for production |
+| Missing Data | Lab 3 downloads MNIST automatically on first run |
+| Import Errors | Ensure all packages from Requirements are installed |
 
 ## References
 
@@ -230,9 +251,12 @@ The labs implement concepts from:
 
 ## Authors
 
-Created by: Ezra Erives, Paul Hold, Ron Shechter
+Created by: **Ezra Erives**, **Paul Hold**, **Ron Shechter**
 
-For feedback or questions: `ezraerives@gmail.com`, `phold@mit.edu`, `ronsh@mit.edu`
+For feedback or questions, please reach out:
+- `ezraerives@gmail.com`
+- `phold@mit.edu`
+- `ronsh@mit.edu`
 
 ## License
 
@@ -240,4 +264,4 @@ Educational material for learning generative modeling techniques.
 
 ---
 
-**Get Started**: Begin with `lab_one.ipynb` to learn the fundamentals of simulating differential equations, then progress through the labs to build complete generative models!
+**Get Started Now**: Begin with `lab_one.ipynb` to learn the fundamentals of simulating differential equations, then progress through the labs to build complete generative models!
